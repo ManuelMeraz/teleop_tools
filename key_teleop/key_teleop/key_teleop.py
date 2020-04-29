@@ -124,13 +124,13 @@ class SimpleKeyTeleop(Node):
         super().__init__('key_teleop')
 
         self._interface = interface
-        self._pub_cmd = self.create_publisher(Twist, 'key_vel')
+        self._pub_cmd = self.create_publisher(Twist, 'key_vel', 10)
 
         self._hz = self.declare_parameter('hz', 10).value
 
-        self._forward_rate = self.declare_parameter('forward_rate', 0.8).value
-        self._backward_rate = self.declare_parameter('backward_rate', 0.5).value
-        self._rotation_rate = self.declare_parameter('rotation_rate', 1.0).value
+        self._forward_rate = self.declare_parameter('forward_rate', 1.5).value
+        self._backward_rate = self.declare_parameter('backward_rate', 1.0).value
+        self._rotation_rate = self.declare_parameter('rotation_rate', 1.5).value
         self._last_pressed = {}
         self._angular = 0
         self._linear = 0
